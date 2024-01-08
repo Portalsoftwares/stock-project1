@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from '../views/Dashboard.vue'
 import Auth from '../views/Auth.vue'
 import Customers from '../views/customers/index.vue'
 import Products from '../views/products/index.vue'
 import Vendors from '../views/vendors/index.vue'
 import Home from '../views/Index.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(),
