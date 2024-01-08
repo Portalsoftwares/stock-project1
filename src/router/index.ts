@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
 import Auth from '../views/Auth.vue'
 import Customers from '../views/customers/index.vue'
-import Items from '../views/items/index.vue'
+import Products from '../views/products/index.vue'
+import Vendors from '../views/vendors/index.vue'
 import Home from '../views/Index.vue'
 
 const router = createRouter({
@@ -29,9 +30,14 @@ const router = createRouter({
           component: Customers
         },
         {
-          path: '/items',
-          name: 'items',
-          component: Items
+          path: '/products',
+          name: 'products',
+          component: Products
+        },
+        {
+          path: '/vendors',
+          name: 'Vendors',
+          component: Vendors
         }
       ]
     },
