@@ -2,7 +2,7 @@
 import { useAuthStore } from '../stores/AuthState';
 import { ref, computed } from "vue";
 
-export function authMiddleware(to, from, next) {
+export function authMiddleware(to: any, from : any, next : any) {
   const authStore = useAuthStore();
 
   // Check if the user is authenticated

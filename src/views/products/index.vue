@@ -162,7 +162,7 @@ const rules = reactive<FormRules<typeof ruleForm>>({
     code: [{ required: true , trigger: 'blur' }],
     name: [{ required: true , trigger: 'blur' }],
 });
-const resetForm = (formEl: FormInstance | undefined) => {
+const resetForm = (formEl?: FormInstance | undefined) => {
   if (!formEl) return
     formEl.resetFields()
     dialogVisible.value = false
