@@ -11,8 +11,8 @@ export const useAuthStore  = defineStore('auth', () => {
 
   const isLogin =  ref(JSON.parse(storedToken) ?? false);
   const token = ref(JSON.parse(storedToken) ?? '');
-  const user = ref(JSON.parse(storedUser) ?? []);
-  const role = ref(JSON.parse(storedRole) ?? []);
+  const user = ref(JSON.parse(storedUser) ?? '');
+  const role = ref(JSON.parse(storedRole) ?? '');
 
   const Authorization = computed(() =>   'Bearer ' + token.value  )
 
