@@ -157,6 +157,7 @@ import { storeToRefs } from "pinia";
 const { user,Authorization } = storeToRefs(useAuthStore()); 
 
 var isShow = ref(true);
+const API = ref('https://puokschool.qrmms.com/api/v1');
 var route = useRoute();
 const router = useRouter()
 
@@ -167,7 +168,7 @@ const toggleMenu = () => {
 }
 
 const logout = () => {
-    fetch('http://127.0.0.1:8000/api/v1/logout', {
+    fetch( API.value + '/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

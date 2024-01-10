@@ -29,8 +29,8 @@ import { useRouter, useRoute } from 'vue-router'
 var route = useRoute();
 const router = useRouter()
 
-
-const { isLogin,token, user, role } = storeToRefs(useAuthStore()); 
+const { isLogin, token, user, role } = storeToRefs(useAuthStore()); 
+const API = ref('https://puokschool.qrmms.com/api/v1');
 
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
@@ -46,7 +46,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid) => {
     if (valid) {
-      return   fetch('http://127.0.0.1:8000/api/v1/login', {
+      return   fetch(API.value + '/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

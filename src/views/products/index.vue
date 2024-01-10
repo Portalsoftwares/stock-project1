@@ -80,10 +80,10 @@
 <script lang="ts" setup>
 import { ref, computed, reactive } from "vue";
 import { useRouter, useRoute } from 'vue-router'
-
 import { useAuthStore } from "../../stores/AuthState";
 import { storeToRefs } from "pinia";
 
+const API = ref('https://puokschool.qrmms.com/api/v1');
 const { user, Authorization } = storeToRefs(useAuthStore());
 
 const inputSearch = ref('');
@@ -99,7 +99,7 @@ const loading = ref(false)
 
 const loadData = () => {
     loading.value = true
-    fetch(`http://127.0.0.1:8000/api/v1/product/get?page=${currentPage.value}&per_page=${pageSize.value}&sort_by=${sortBy.value}&order_by=${orderBy.value}&search=${inputSearch.value}`, {
+    fetch(`${API.value}/product/get?page=${currentPage.value}&per_page=${pageSize.value}&sort_by=${sortBy.value}&order_by=${orderBy.value}&search=${inputSearch.value}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -196,7 +196,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
             endpoint = 'update/'+ruleForm.value.id ;
         }
         if (valid) {
-            fetch('http://127.0.0.1:8000/api/v1/product/'+ endpoint, {
+            fetch(API.value + '/product/'+ endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -228,7 +228,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
 }
 
 const editForm = (id: number) => {
-    fetch('http://127.0.0.1:8000/api/v1/product/edit/'+id, {
+    fetch(API.value + '/product/edit/'+id, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ const editForm = (id: number) => {
     })
 }
 const deleteEvent = (id: number) => {
-    fetch('http://127.0.0.1:8000/api/v1/product/delete/'+id, {
+    fetch(API.value + '/product/delete/'+id, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
