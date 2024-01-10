@@ -5,6 +5,10 @@ import Products from '../views/products/index.vue'
 import Vendors from '../views/vendors/index.vue'
 import Home from '../views/Index.vue'
 import Dashboard from '../views/Dashboard.vue'
+import Invoices from '../views/invoices/index.vue'
+import Purhcases from '../views/purchases/index.vue'
+
+import { authMiddleware } from '../midlewares/auth';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,6 +22,7 @@ const router = createRouter({
       path: '/',
       name: 'Dashboard',
       component: Dashboard,
+      beforeEnter: authMiddleware,
       children: [
         {
           path: '/',
@@ -38,6 +43,16 @@ const router = createRouter({
           path: '/vendors',
           name: 'Vendors',
           component: Vendors
+        },
+        {
+          path: '/invoices',
+          name: 'Invoices',
+          component: Invoices
+        },
+        {
+          path: '/purchases',
+          name: 'Purchases',
+          component: Purhcases
         }
       ]
     },
